@@ -1,19 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-import Character from "./components/character/Character";
 import React from "react";
-import Simpsons from "./components/simpsons/Simpsons";
-
+import Users from "./components/users/Users";
 
 
 function App() {
-  return (
-    <div>
-		<Simpsons/>
+    return (
+        <div>
+            <Users/>
 
-
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;
