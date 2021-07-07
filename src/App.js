@@ -10,7 +10,7 @@ function App() {
 
         <div>
             <Menu pages={['user page', 'comments page', 'posts page']}/>
-            <Users/>
+            <Users key={'syle'}/>
             <Menu pages={['about', 'team', 'contact us']}/>
 
         </div>

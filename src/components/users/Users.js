@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import './UserStyles.css';
 
 export default function Users() {
 

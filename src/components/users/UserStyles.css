@@ -1,0 +1,17 @@
+
+body{
+    background: cadetblue;
+    display: flex;
+    flex-direction: column;
+}
+
+div{
+    font-style: italic;
+    padding: 5px;
+    margin: 20px;
+    background: chocolate;
+    position: center;
+
+
+
+}
