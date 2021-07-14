@@ -1,13 +1,12 @@
-export default function User({item, fen}) {
+export default function User ({item, clickUser}) {
     return (
         <div>
             {item.id} - {item.name} -
             {
                 <button onClick={
-                    () =>  fen(item.id)
-                }> on click </button>
+                    () => clickUser(item.id)
+                }> click me </button>
             }
-
         </div>
     )
 }
