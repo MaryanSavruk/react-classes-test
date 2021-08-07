@@ -4,15 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createStore} from "redux";
-import {Provider} from "react-redux";
+import {Provider, useSelector} from "react-redux";
 
-const initialValue = {
+const initialState = {
     counter: {
-        value: 0
+        value: 0,
+        posts: []
     }
 }
 
-const reducer = (state = initialValue, action) => {
+const reducer = (state = initialState, action) => {
+
     switch (action.type) {
         case 'INC': {
             return {
@@ -22,32 +24,64 @@ const reducer = (state = initialValue, action) => {
                 }
             }
         }
+            case 'DEC': {
+            return {
+                ...state,
+                counter: {
+                    value: state.counter.value - 1
+                }
+            }
+        }
+        case 'RESET': {
+            return {
+                ...state,
+                counter: {
+                    value: state.counter.value = 0
+                }
+            }
+        }
+        case 'ADD_POSTS': {
+            return {
+                ...state,
+                posts: action.payload
+            }
+        }
+
         default:
-            return state;
+            return state
     }
 }
 
+
 const store = createStore(reducer);
 
+
+// console.log(store.getState());
 const INCREMENT_ACTION = {
     type: 'INC'
 }
+
 store.subscribe(() => {
-    console.log(store.getState())
+    // console.log(store.getState())
 })
 
-// store.dispatch(INCREMENT_ACTION);
-// store.dispatch(INCREMENT_ACTION);
-// store.dispatch(INCREMENT_ACTION);
+
+store.dispatch(INCREMENT_ACTION)
+
+
+
 console.log(store.getState());
 
+
+
+
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-      </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
